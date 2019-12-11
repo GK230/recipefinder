@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <script type="javascript" src="script.js"></script>    
+    <title>recipefinder</title>
+  </head>
+  <body>
+      <h1>Recipe Finder</h1>
+      <img src="images/pan.jpeg" alt="a happy pan">
+      <h2>Enter the ingredients you have and find a possible recipe!</h2>
+      <form>
+      <div class="ingredients">
+          <input type="checkbox" name="onions" value="onions">Onions<br>
+          <input type="checkbox" name="garlic" value="garlic">Garlic<br>
+          <input type="checkbox" name="plumtomatoes" value="plumtomatoes">Tinned Plum Tomatoes<br>
+          <input type="checkbox" name="peppers" value="peppers">Mixed Peppers<br>
+          <input type="checkbox" name="kidneybeans" value="kidneybeans">Kidney Beans<br>
+          <input type="checkbox" name="spaghetti" value="spaghetti">Spaghetti<br>
+          <input type="checkbox" name="redchillies" value="redchillies">Red Chillies<br>
+          <input type="checkbox" name="oliveoil" value="oliveoil">Olive Oil<br>
+          <input type="checkbox" name="coriander" value="coriander">Coriander<br>
+          <input type="checkbox" name="jalapenos" value="jalapenos">Jalapenos<br>
+          <input type="checkbox" name="longgrainrice" value="longgrainrice">Long Grain Rice<br>
+          <input type="checkbox" name="pizzabases" value="pizzabases">Pizza Bases<br>
+          <input type="checkbox" name="basil" value="basil">Basil<br>
+          <input type="checkbox" name="blackolives" value="blackolives">Black Olives<br>
+          <input type="checkbox" name="tinnedchoppedtomatoes" value="tinnedchoppedtomatoes">Tinned Chopped Tomatoes<br>
+          <input type="checkbox" name="freshtomatoes" value="freshtomatoes">Fresh Tomatoes<br>
+          <input type="checkbox" name="cucumber" value="cucumber">Cucumber<br>
+          <input type="checkbox" name="herbs" value="herbs">Herbs<br>
+          <input type="checkbox" name="lemons" value="lemons">Lemons<br>
+          <input type="checkbox" name="penne" value="penne">Penne<br>
+      </div>
+
+
+          <button onclick="userIngredients()">Get Recipes</button>
+    </form>
+
+    <h2>Possible recipes:</h2>
+    <p class="possrecipes"></p>
+  </body>

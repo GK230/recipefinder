@@ -1,0 +1,58 @@
+        {   
+            "spaghetti pomodoro":
+            ["olive oil", 
+                            "garlic", 
+                            "tinned plum tomatoes", 
+                            "basil", 
+                            "spaghetti"
+            ]
+        },
+        {
+            "chilli beans":
+            ["olive oil", 
+                            "garlic", 
+                            "onion", 
+                            "mixed peppers", 
+                            "kidney beans", 
+                            "tinned chopped tomatoes", 
+                            "coriander", 
+                            "jalapenos",
+                            "long grain rice"
+            ]
+        },
+        {
+            "pizza":
+            ["olive oil", 
+                            "garlic", 
+                            "onion", 
+                            "mixed peppers", 
+                            "pizza bases", 
+                            "tinned plum tomatoes", 
+                            "basil", 
+                            "black olives"
+            ]
+        },
+        {
+            "greek salad":
+            ["olive oil", 
+                            "fresh tomatoes", 
+                            "cucumber", 
+                            "mixed peppers", 
+                            "herbs", 
+                            "black olives", 
+                            "lemons"
+            ]
+        },
+        {
+
+            "penne arabiata":
+            ["olive oil", 
+                            "garlic", 
+                            "red chillies",  
+                            "basil", 
+                            "tinned plum tomatoes",
+                            "penne"
+            ]
+        }
+    
+    
