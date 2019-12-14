@@ -1,57 +1,84 @@
-// URLs
+// // URLs
 const API_ENDPOINT = "http://localhost:3000";
-const RECIPES_URL = `${API_ENDPOINT}/recipefinder`;
+const RECIPES_URL = `${API_ENDPOINT}/recipes`;
 
-const response = await fetch('db.json');
-const myJson = await response.json();
-console.log(JSON.stringify(myJson));
+let allTheRecipes = []
 
-function useringredients(){
-  //get variables
-  let chkonions = document.querySelector("onions");
-  let chkgarlic = document.querySelector("garlic");
-  let chktinnedplumtomatoes = document.querySelector("tinnedplumtomatoes");
-  let chkmixedpeppers = document.querySelector("mixedpeppers");
-  let chkkidneybeans = document.querySelector("kidneybeans");
-  let chkspaghetti = document.querySelector("spaghetti");
-  let chkredchillies = document.querySelector("redchillies");
-  let chkoliveoil = document.querySelector("oliveoil");
-  let chkcoriander = document.querySelector("coriander");
-  let chkojalapenos = document.querySelector("jalapenos");
-  let chklonggrainrice = document.querySelector("longgrainrice");
-  let chkpizzabases = document.querySelector("pizzabases");
-  let chkbasil = document.querySelector("basil");
-  let chkblackolives = document.querySelector("blackolives");
-  let chktinnedchoppedtomatoes = document.querySelector("tinnedchoppedtomatoes");
-  let chkfreshtomatoes = document.querySelector("freshtomatoes");
-  let chkcucmumber = document.querySelector("cucumber");
-  let chkherbs = document.querySelector("herbs");
-  let chklemons = document.querySelector("lemons");
-  let chkpenne = document.querySelector("penne");
+fetch(RECIPES_URL)
+  .then(res => res.json())
+  .then(recipes => {
+    allTheRecipes = recipes
+    renderCheckboxes(allTheRecipes)
+  })
 
-if (chkonions == true)
-function getRecipes(obj, val) {
-  var recipes = [];
-  for (var i in obj) {
-      if (!obj.hasOwnProperty(i)) continue;
-      if (typeof obj[i] == 'onions') {
-          objects = objects.concat(getKeys(obj[i], val));
-      } else if (obj[i] == val) {
-          recipes.push(i);
-      }
-  }
-  document.querySelector(".possrecipes").innerHTML = recipes;
-  return recipes;
+const renderCheckboxes = recipes => {
+  const ingredients = recipes.reduce((array, recipe) => {
+    return [...array, ...recipe.ingredients.filter(ing => !array.includes(ing))]
+  }, [])
+  // Set
+  console.log(ingredients)
 
+  const ingContainer = document.querySelector('.ingredients')
+
+  ingredients.forEach(ing => {
+    const checkbox = document.createElement('input')
+    checkbox.type = 'checkbox'
+    checkbox.value = ing
+    const label = document.createElement('label')
+    label.innerText = ing
+
+    ingContainer.append(checkbox, label)
+  })
+}
+// // const myJson = await response.json();
+// console.log(JSON.stringify(myJson));
+
+function useringredients() {
+  const allTheCheckboxes = document.querySelectorAll('input[type="checkbox"]:checked')
+
+  const allTheIngredients = [...allTheCheckboxes].map(item => item.value)
+
+  return allTheIngredients
 }
 
+const form = document.querySelector('form')
+form.addEventListener('submit', (event) => {
+  event.preventDefault()
+  console.log('submit')
+  document.querySelector('.possrecipes').innerHTML = ''
+  const userSelectedIngredients = useringredients()
+  renderRecipesFromIngredients(allTheRecipes, userSelectedIngredients)
+})
 
+const renderRecipesFromIngredients = (recipes, ingredients) => {
 
+  recipes.forEach(recipe => {
+    // let containsIng = false
 
-  
+    // ingredients.forEach(ing => {
+    //   if (recipe.ingredients.includes(ing)) {
+    //     containsIng = true
+    //   }
+    // })
 
+    // if (containsIng) {
+    //   renderRecipe(recipe)
+    // }
 
+    const ingredientsInRecipe = ingredients.filter(ing => recipe.ingredients.includes(ing))
+    let containsAllIngredients = ingredientsInRecipe.length === ingredients.length
+    if (containsAllIngredients) {
+      renderRecipe(recipe)
+    }
+  })
+}
 
+const renderRecipe = (recipe) => {
+  const list = document.querySelector('.possrecipes')
 
-  
+  const li = document.createElement('li')
+  li.innerText = recipe.name
 
+  list.append(li)
+
+}
